@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Lab1
+namespace Lab2
 {
     /// <summary>
     /// Class of student
@@ -228,7 +228,6 @@ namespace Lab1
                 else
                 {
                     _groupIndex = '-';
-                    Console.WriteLine("Index did not pass validation!");
                 }
             }
         }
@@ -252,7 +251,6 @@ namespace Lab1
                 if (value > -1 && value < 101)
                 {
                     _academicPerformance = value;
-                    Console.WriteLine("Speciality passed validation");
                 }
                 else
                 {
@@ -274,7 +272,7 @@ namespace Lab1
         /// Constructor with 1 parametrs
         /// </summary>
         /// <param name="name">Name</param>
-        public Student(string name) : this(name,"N/D")
+        public Student(string name) : this(name, "N/D")
         {
         }
         /// <summary>
@@ -291,7 +289,7 @@ namespace Lab1
         /// <param name="name">Name</param>
         /// <param name="surname">Surname</param>
         /// <param name="patronymic">Patronymic</param>
-        public Student(string name, string surname, string patronymic) : this(name, surname, patronymic,"N/D")
+        public Student(string name, string surname, string patronymic) : this(name, surname, patronymic, "N/D")
         {
         }
         /// <summary>
@@ -375,6 +373,7 @@ namespace Lab1
         }
         #endregion
 
+        #region Override Methods
         /// <summary>
         /// Override method ToString()
         /// </summary>
@@ -383,5 +382,6 @@ namespace Lab1
         {
             return $"Name: {Name}\nSurname: {Surname}\nPatronymic: {Patronymic}\nBirthday: {Birthday.ToShortDateString()}\nReciep date: {ReceiptDate.ToShortDateString()}\nFaculty: {Faculty}\nSpeciality: {Speciality}\nAcademic performance: {AcademicPerformance}\nGroup index: {GroupIndex}\n";
         }
+        #endregion
     }
 }

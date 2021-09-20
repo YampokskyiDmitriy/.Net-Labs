@@ -19,7 +19,7 @@ namespace Lab1
                 arrStudent[i].Name = Console.ReadLine();
 
                 Console.WriteLine("Enter surname:");
-                arrStudent[i].Surame = Console.ReadLine();
+                arrStudent[i].Surname = Console.ReadLine();
 
                 Console.WriteLine("Enter patronymic:");
                 arrStudent[i].Patronymic = Console.ReadLine();
@@ -45,6 +45,9 @@ namespace Lab1
 
                 Console.WriteLine("Enter speciality:");
                 arrStudent[i].Speciality = Console.ReadLine();
+
+                Console.WriteLine("Enter group index:");
+                arrStudent[i].GroupIndex = Convert.ToChar(Console.ReadLine());
 
                 Console.WriteLine("Enter academic performance:");
                 arrStudent[i].AcademicPerformance = float.Parse(Console.ReadLine());
