@@ -1,15 +1,15 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
-namespace Lab1
+namespace Lab3
 {
     /// <summary>
     /// Class of student
     /// </summary>
-    public class Student
+    [DataContract]
+    class Student
     {
-
         #region Fields&Propertys
-
         /// <summary>
         /// Private field _name
         /// </summary>
@@ -17,6 +17,7 @@ namespace Lab1
         /// <summary>
         /// Public property Name
         /// </summary>
+        [DataMember]
         public string Name
         {
             get
@@ -45,6 +46,7 @@ namespace Lab1
         /// <summary>
         /// Public property Surname
         /// </summary>
+        [DataMember]
         public string Surname
         {
             get
@@ -73,6 +75,7 @@ namespace Lab1
         /// <summary>
         /// Public property Patronymic
         /// </summary>
+        [DataMember]
         public string Patronymic
         {
             get
@@ -101,6 +104,7 @@ namespace Lab1
         /// <summary>
         /// Public property birthday
         /// </summary>
+        [DataMember]
         public DateTime Birthday
         {
             get
@@ -117,7 +121,7 @@ namespace Lab1
                 }
                 else
                 {
-                    _birthday = new DateTime();
+                    _birthday = DateTime.UtcNow;
                     Console.WriteLine("Birthday did not pass validation!");
                 }
             }
@@ -129,6 +133,7 @@ namespace Lab1
         /// <summary>
         /// Public property ReceiptDate
         /// </summary>
+        [DataMember]
         public DateTime ReceiptDate
         {
             get
@@ -145,7 +150,7 @@ namespace Lab1
                 }
                 else
                 {
-                    _receiptDate = new DateTime();
+                    _receiptDate = DateTime.UtcNow;
                     Console.WriteLine("Receipt date did not pass validation!");
                 }
             }
@@ -157,6 +162,7 @@ namespace Lab1
         /// <summary>
         /// Public property Faculty
         /// </summary>
+        [DataMember]
         public string Faculty
         {
             get
@@ -185,6 +191,7 @@ namespace Lab1
         /// <summary>
         /// Private property Speciality
         /// </summary>
+        [DataMember]
         public string Speciality
         {
             get
@@ -213,6 +220,7 @@ namespace Lab1
         /// <summary>
         /// Public property GroupIndex
         /// </summary>
+        [DataMember]
         public char GroupIndex
         {
             get
@@ -230,7 +238,6 @@ namespace Lab1
                 else
                 {
                     _groupIndex = '-';
-                    Console.WriteLine("Index did not pass validation!");
                 }
             }
         }
@@ -241,6 +248,7 @@ namespace Lab1
         /// <summary>
         /// Public property AcademicPerformance
         /// </summary>
+        [DataMember]
         public float AcademicPerformance
         {
             get
@@ -254,7 +262,6 @@ namespace Lab1
                 if (value > -1 && value < 101)
                 {
                     _academicPerformance = value;
-                    Console.WriteLine("Speciality passed validation");
                 }
                 else
                 {
@@ -263,11 +270,9 @@ namespace Lab1
                 }
             }
         }
-
         #endregion
 
         #region Constructors
-
         /// <summary>
         /// Constructor with 0 parametrs
         /// </summary>
@@ -278,7 +283,7 @@ namespace Lab1
         /// Constructor with 1 parametrs
         /// </summary>
         /// <param name="name">Name</param>
-        public Student(string name) : this(name,"N/D")
+        public Student(string name) : this(name, "N/D")
         {
         }
         /// <summary>
@@ -295,7 +300,7 @@ namespace Lab1
         /// <param name="name">Name</param>
         /// <param name="surname">Surname</param>
         /// <param name="patronymic">Patronymic</param>
-        public Student(string name, string surname, string patronymic) : this(name, surname, patronymic,"N/D")
+        public Student(string name, string surname, string patronymic) : this(name, surname, patronymic, "N/D")
         {
         }
         /// <summary>
@@ -350,8 +355,8 @@ namespace Lab1
             Speciality = speciality;
             AcademicPerformance = academicPerformance;
             GroupIndex = groupIndex;
-            Birthday = new DateTime();
-            ReceiptDate = new DateTime();
+            Birthday = DateTime.UtcNow;
+            ReceiptDate = DateTime.UtcNow;
         }
         /// <summary>
         /// Constructor with 9 parametrs
@@ -377,9 +382,9 @@ namespace Lab1
             AcademicPerformance = academicPerformance;
             GroupIndex = groupIndex;
         }
-
         #endregion
 
+        #region Override Methods
         /// <summary>
         /// Override method ToString()
         /// </summary>
@@ -388,5 +393,6 @@ namespace Lab1
         {
             return $"Name: {Name}\nSurname: {Surname}\nPatronymic: {Patronymic}\nBirthday: {Birthday.ToShortDateString()}\nReciep date: {ReceiptDate.ToShortDateString()}\nFaculty: {Faculty}\nSpeciality: {Speciality}\nAcademic performance: {AcademicPerformance}\nGroup index: {GroupIndex}\n";
         }
+        #endregion
     }
 }
