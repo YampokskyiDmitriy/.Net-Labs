@@ -8,8 +8,12 @@ namespace Lab5
 {
     class Program
     {
+        delegate void Init(Collection collection, List<Student> students);
         static void Main(string[] args)
         {
+            Init init = Add;
+            init += Print;
+
             var students = new List<Student>()
             {
                 new Student("Dima","Yampolskyi","Andreevich","CIT","Computer games",50f,'a'),
@@ -21,15 +25,9 @@ namespace Lab5
 
             var collection = new Collection();
 
-            foreach (var stud in students)
-            {
-                collection.Add(stud);
-            }
-
-            foreach (var student in collection)
-            {
-                Console.WriteLine(student.ToString());
-            }
+            //Add(collection, students);
+            //Print(collection, students);
+            init(collection, students);
 
             Console.WriteLine("Remove all from CIT faculty-------------------------------------------------------------------------------------------------------");
             collection.RemomeCIT();
@@ -41,6 +39,22 @@ namespace Lab5
 
             Console.ReadLine();
 
+        }
+
+        static void Add(Collection collection, List<Student> students)
+        {
+            foreach (var stud in students)
+            {
+                collection.Add(stud);
+            }
+        }
+
+        static void Print(Collection collection, List<Student> students)
+        {
+            foreach (var student in collection)
+            {
+                Console.WriteLine(student.ToString());
+            }
         }
     }
 }
