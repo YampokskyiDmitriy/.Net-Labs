@@ -7,7 +7,7 @@ namespace Lab3
     /// Class of student
     /// </summary>
     [DataContract]
-    class Student
+    public class Student
     {
         #region Fields&Propertys
         /// <summary>

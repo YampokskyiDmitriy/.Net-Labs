@@ -109,7 +109,7 @@ namespace Lab7
         public void RemomeCIT()
         {
 
-            for (int i = _students.Count - 1; i > -1; i--)
+            for (var i = _students.Count - 1; i > -1; i--)
             {
                 if (_students[i].Faculty == "CIT")
                 {

@@ -5,14 +5,16 @@ using System.Runtime.Serialization.Json;
 
 namespace Lab3
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var students = new List<Student>()
             {
                 new Student("Dima","Yampolskyi","Andreevich","CIT","Computer games",50f,'a'),
                 new Student("Dima","Menshakov","Olegovich","CIT","Computer games",100f,'a'),
+                new Student("Roma","Momot","Olegovich","CIT","Computer games",100f,'a'),
+                new Student("Vadim","Beliy","Olegovich","CIT","Computer games",100f,'a'),
             };
 
             var collection = new Collection();

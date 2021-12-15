@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Lab6
+namespace Lab8
 {
     /// <summary>
     /// Personal class container
@@ -108,10 +108,13 @@ namespace Lab6
         /// </summary>
         public void RemomeCIT()
         {
-            var query = _students.Where(s => s.Faculty == "CIT").ToList();
-            for (int i = 0; i > query.Count; i++)
+
+            for (var i = _students.Count - 1; i > -1; i--)
             {
-                _students.Remove(query[i]);
+                if (_students[i].Faculty.Name == "CIT")
+                {
+                    _students.Remove(_students[i]);
+                }
             }
         }
 
@@ -135,7 +138,6 @@ namespace Lab6
         #endregion
 
         #region Implement of IEnumerable
-
         public IEnumerator<Student> GetEnumerator()
         {
             return _students.GetEnumerator();
@@ -145,8 +147,6 @@ namespace Lab6
         {
             return _students.GetEnumerator();
         }
-
         #endregion
-
     }
 }
